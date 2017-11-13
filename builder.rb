@@ -16,7 +16,9 @@ end
   row["Description"] = row["Description"].gsub(/\n+/, "</p><p>")
   row
 end
-@project_rows = CSV.open("data/Projects.csv", headers: true).readlines
+@project_rows = CSV.open("data/Projects.csv", headers: true).readlines.sort_by do |row|
+  Date.strptime(row["Start Date"], "%b %Y")
+end.reverse
 @education_rows = CSV.open("data/Education.csv", headers: true).readlines
 recommendation_rows = CSV.open("data/Recommendations Received.csv", headers: true).readlines
 @recommendations_hash = {}
