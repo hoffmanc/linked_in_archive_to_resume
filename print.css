@@ -31,4 +31,7 @@
     dl {
         page-break-before: avoid
     }
+    .page-break-before {
+      page-break-before: always;
+    }
 }
