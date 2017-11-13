@@ -1,0 +1,77 @@
+%html
+  %head
+    %link{ :href => "print.css", :media => "print", :rel => "stylesheet" }
+    %link{ :href => "style.css", :rel => "stylesheet" }
+    %link{ :href => "https://fonts.googleapis.com/css?family=Montserrat", :rel => "stylesheet" }
+  %body
+    %section
+      %article
+        %header
+          %h1
+            = @profile["First Name"]
+            = @profile["Last Name"]
+            %small= @profile["Headline"]
+          %p.email-address= @primary_email
+
+    %hr
+    %section
+      %h2.section-title Summary
+      %p= @profile["Summary"]
+
+    %hr
+    %section
+      %h2.section-title Experience
+      - for row in @experience_rows
+        %h3 
+          = row["Title"]
+          at
+          = row["Company Name"]
+        %p.dates
+          = row["Started On"]
+          \-
+          = row["Finished On"] || "Present"
+        %p= row["Description"]
+
+    %hr
+    %section
+      %h2.section-title Projects
+      - for row in @project_rows
+        %h3 
+          = row["Title"]
+        %p.dates
+          = row["Start Date"]
+          \-
+          = row["End Date"] || "Present"
+        %p= row["Description"]
+        - if row["URL"]
+          %p 
+            URL: 
+            = row["URL"]
+
+    %hr
+    %section
+      %h2.section-title Education
+      - for row in @education_rows
+        %h3 
+          = row["School Name"]
+        %p
+          - if row["Degree Name"]
+            = "#{row["Degree Name"]},"
+          = "#{row["School Name"]},"
+          = row["Start Date"]
+          \-
+          = row["End Date"]
+
+
+    %hr
+    %section
+      %h2.section-title Recommendations
+      - @recommendations_hash.each do |company, rows|
+        %h3 
+          = company
+        - for row in rows
+          %h4
+            = row["First Name"]
+            = row["Last Name"]
+          %p
+            = row["Text"].gsub(/’/,"'")

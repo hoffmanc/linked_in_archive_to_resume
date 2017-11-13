@@ -1,0 +1,38 @@
+h1, h2, h3, h4, .section-title, .email-address, .dates {
+  font-family: Montserrat;
+}
+
+h1 {
+  font-size: 24pt;
+  margin-bottom: 1px;
+}
+
+h1 small {
+  font-size: 14pt;
+  color: #666;
+}
+
+h2 {
+  font-size: 16pt;
+}
+
+h3 {
+  margin-bottom: 5px;
+}
+
+p.dates {
+  margin-top: 1px;
+}
+
+h4 {
+  font-size: 10pt;
+}
+
+.section-title {
+  font-size: 14pt;
+  text-transform: uppercase;
+}
+
+.section-title, .email-address {
+  color: #666;
+}
