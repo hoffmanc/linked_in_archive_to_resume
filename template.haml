@@ -40,8 +40,9 @@
           = row["Title"]
         %p.dates
           = row["Start Date"]
-          \-
-          = row["End Date"] || "Present"
+          - if row["End Date"]
+            \-
+            = row["End Date"]
         %p= row["Description"]
         - if row["URL"]
           %p 
