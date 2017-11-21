@@ -6,7 +6,7 @@ Basic Resume from LinkedIn Archive
 Description
 -----------
 
-I dislike maintaining my resume, after goin through the trouble of maintaining my LinkedIn profile.  
+I dislike maintaining my resume, after going through the trouble of maintaining my LinkedIn profile.  
 So, why not kill two birds with one stone?  So, I wrote this bit of code as an attempt to accomplish
 this goal.
 
@@ -18,9 +18,8 @@ Installation
 Usage
 -----
 
-Download a copy of your LinkedIn archive:
+Download a copy of your LinkedIn archive: https://www.linkedin.com/psettings/member-data
 
-[https://www.linkedin.com/psettings/member-data]
 You only need to download the *Profile* data, but you may as well grab the whole shebang, as the
 profile part gets sent before the rest.
 
