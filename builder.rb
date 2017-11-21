@@ -4,6 +4,10 @@ require "rubygems"
 require "haml"
 require "csv"
 
+require File.join(File.dirname(__FILE__), "opts.rb")
+
+@options = BuilderOpts.parse(ARGV)
+
 @profile = CSV.open("data/Profile.csv", headers: true).readlines.first
 
 CSV.open("data/Email Addresses.csv", headers: true).each do |row|

@@ -21,6 +21,8 @@
     %hr
     %section
       %h2.section-title Experience
+        - if !@options.show_projects
+          %small (see LinkedIn for complete history - including projects)
       - for row in @experience_rows
         %h3 
           = row["Title"]
@@ -32,22 +34,23 @@
           = row["Finished On"] || "Present"
         %p= row["Description"]
 
-    %hr
-    %section
-      %h2.section-title Projects
-      - for row in @project_rows
-        %h3 
-          = row["Title"]
-        %p.dates
-          = row["Start Date"]
-          - if row["End Date"]
-            \-
-            = row["End Date"]
-        %p= row["Description"]
-        - if row["URL"]
-          %p 
-            URL: 
-            = row["URL"]
+    - if @options.show_projects
+      %hr
+      %section
+        %h2.section-title Projects
+        - for row in @project_rows
+          %h3 
+            = row["Title"]
+          %p.dates
+            = row["Start Date"]
+            - if row["End Date"]
+              \-
+              = row["End Date"]
+          %p= row["Description"]
+          - if row["URL"]
+            %p 
+              URL: 
+              = row["URL"]
 
     %hr
     %section
@@ -63,7 +66,7 @@
           \-
           = row["End Date"]
 
-  - if false
+  - if @options.show_recommendations
     %hr
     %section
       %h2.section-title Recommendations
