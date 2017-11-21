@@ -8,7 +8,7 @@ class BuilderOpts
     options.show_recommendations = false
 
     opt_parser = OptionParser.new do |opts|
-      opts.banner = "Usage: builder.rb [options]"
+      opts.banner = "Usage: linked_in_archive_to_resume [options]"
       opts.separator ""
       opts.separator "Specific options:"
 
