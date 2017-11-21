@@ -1,6 +1,24 @@
-h1, h2, h3, h4, .section-title, .email-address, .dates {
+h1, h3, h4, a, .section-title, .contact, .address, .dates {
   font-family: Montserrat;
 }
+
+h3 {
+  font-size: 12pt;
+  margin: 0;
+}
+
+a, .contact, .address {
+  font-size: 10pt;
+}
+
+.address {
+  float: right;
+}
+
+p {
+  margin: 7px 0;
+}
+
 
 h1 {
   font-size: 24pt;
@@ -13,15 +31,23 @@ h1 small {
 }
 
 h2 {
-  font-size: 16pt;
+  font-size: 12pt;
 }
 
-h3 {
+h2 small {
+  font-size: 8pt;
+  text-transform: none;
+  font-family: Arial;
+  font-weight: normal;
+}
+
+h4 {
   margin-bottom: 5px;
 }
 
 p.dates {
-  margin-top: 1px;
+  margin: 1px 0;
+  font-size: 10pt;
 }
 
 h4 {
@@ -29,10 +55,9 @@ h4 {
 }
 
 .section-title {
-  font-size: 14pt;
   text-transform: uppercase;
 }
 
-.section-title, .email-address {
+.section-title, .email-address, .dates {
   color: #666;
 }

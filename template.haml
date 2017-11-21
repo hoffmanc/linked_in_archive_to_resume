@@ -1,8 +1,8 @@
 %html
   %head
-    %link{ :href => "print.css", :media => "print", :rel => "stylesheet" }
-    %link{ :href => "style.css", :rel => "stylesheet" }
-    %link{ :href => "https://fonts.googleapis.com/css?family=Montserrat", :rel => "stylesheet" }
+    %link{ href: "style.css", rel: "stylesheet" }
+    %link{ href: "pring.css", rel: "stylesheet", media: "print" }
+    %link{ href: "https://fonts.googleapis.com/css?family=Montserrat", href: "stylesheet" }
   %body
     %section
       %article
@@ -11,7 +11,17 @@
             = @profile["First Name"]
             = @profile["Last Name"]
             %small= @profile["Headline"]
-          %p.email-address= @primary_email
+          %p.contact
+            .address
+              Quechee, Vt
+
+            %a{href:"mailto:#{@primary_email}"}= @primary_email
+            - if linked_in = @profile["LinkedIn"]
+              |
+              %a{href:"#{linked_in}"}= linked_in.sub(%r{.*(/in.*)/?},"\1")
+            - if phone = @profile["Phone"]
+              |
+              %a{href:"tel:+1#{phone}"}= phone.sub(/(\d{3})(\d{3})(\d{4})/,"\1.\2.\3")
 
     %hr
     %section
@@ -20,7 +30,8 @@
 
     %hr
     %section
-      %h2.section-title Experience
+      %h2.section-title 
+        Experience
         - if !@options.show_projects
           %small (see LinkedIn for complete history - including projects)
       - for row in @experience_rows
@@ -60,11 +71,12 @@
           = row["School Name"]
         %p
           - if row["Degree Name"]
-            = "#{row["Degree Name"]},"
-          = "#{row["School Name"]},"
+            = "#{row["Degree Name"]}, "
           = row["Start Date"]
           \-
-          = row["End Date"]
+          = "#{row["End Date"]}, "
+          - if row["GPA"]
+            = row["GPA"]
 
   - if @options.show_recommendations
     %hr
@@ -74,7 +86,7 @@
         %h3 
           = company
         - for row in rows
-          %h4
+          %h3
             = row["First Name"]
             = row["Last Name"]
           %p
