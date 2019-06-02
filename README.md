@@ -7,7 +7,7 @@ Description
 -----------
 
 I dislike maintaining my resume, after going through the trouble of maintaining my LinkedIn profile.  
-So, why not kill two birds with one stone?  So, I wrote this bit of code as an attempt to accomplish
+So, why not kill two birds with one stone?  I wrote this bit of code as an attempt to accomplish
 this goal.
 
 Installation
